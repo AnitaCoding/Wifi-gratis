@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="menu">
+    <ion-buttons slot="start">
+      <ion-back-button
+      [icon]="backIcon">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{distrito}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let item of listaPuntosWifiFiltrada" [routerLink]="['/ficha-punto-wifi']" [id]="item.id" (click)="comunicarDatos(item.id)">
+      <ion-item href="#" class="ion-activated" color="primary">
+        <div class="card-text">
+          <ion-label class="item-name">{{item.title}}</ion-label>
+          <p *ngIf="item.district">Distrito: {{item.district}}</p>
+          <p *ngIf="item.address">Dirección: {{item.address['street-address']}}</p>
+        </div>
+      </ion-item>
+    </ion-card>
+
+</ion-content>
